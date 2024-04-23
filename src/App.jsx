@@ -86,8 +86,7 @@ function App() {
 
   const submit = async (e) => {
     e.preventDefault();
-
-    if (
+      if (
       firstName === '' ||
       lastName === '' ||
       address === '' ||
@@ -97,38 +96,49 @@ function App() {
       setTimeout(() => {
         setError(false);
       }, 3000);
-      setError(true);
+      setError(true);      
       return;
-    } else {
-      setError(false);
-      setSuccess(true);
     }
-
+  
     const applicantId = uuid();
     const applicantRef = doc(db, 'applicants', applicantId);
-    if (success) {
-      try {
-        await setDoc(applicantRef, {
-          applicant: {
-            id: applicantId,
-            firstName: firstName,
-            lastName: lastName,
-            experience: experience,
-            address: address,
-            contact: contact,
-            driverLicense: documentUploaded,
-          },
-          ssn: ssn,
-          workAuthorization: workAuthorization,
-          llcCompany: llcCompany,
-          bankAccount: bankAccount,
-          medicalCertificate: medicalCertificate,
-          startDate: startDate,
-          time: Timestamp.now(),
-        });
-      } catch (error) {
-        console.error('Error adding document:', error);
-      }
+  
+    try {
+      await setDoc(applicantRef, {
+        applicant: {
+          id: applicantId,
+          firstName: firstName,
+          lastName: lastName,
+          experience: experience,
+          address: address,
+          contact: contact,
+          driverLicense: documentUploaded, 
+        },
+        ssn: ssn,
+        workAuthorization: workAuthorization,
+        llcCompany: llcCompany,
+        bankAccount: bankAccount,
+        medicalCertificate: medicalCertificate,
+        startDate: startDate,
+        time: Timestamp.now(),
+      });
+      setSuccess(true)
+      setFirstName('');
+      setLastName('');
+      setExperience('');
+      setSsn(false);
+      setWorkAuthorization(false);
+      setLlcCompany(false);
+      setBankAccount(false);
+      setMedicalCertificate(false);
+      setAddress('');
+      setStartDate('');
+      setContact('');
+      setFilePreview(null);
+      setDocumentUploaded(null);
+    } catch (error) {
+      console.error('Error adding document:', error);
+      alert('An error occurred while submitting the form. Please try again.');
     }
   };
 
@@ -139,7 +149,7 @@ function App() {
         <div style={{marginTop: "250px"}}>
         <HiBadgeCheck color='#75ed2f' size={90}/>
         <h2 style={{ marginBottom: "10px"}}>Заявка Отправлена!</h2>
-        <p style={{color: "var(--main-secondary-color)", marginTop: "0", maxWidth: "300px"}}>С вами свяжутся через 3-5 дней. Пожалуйста оставайтесь на связи :)</p>
+        <p style={{color: "var(--main-secondary-color)", marginTop: "0", maxWidth: "300px"}}>С вами свяжутся в течении 3-5 дней. Пожалуйста оставайтесь на связи.</p>
         </div>
         <div style={{ position: 'fixed', bottom: '0', backgroundColor: 'var(--main-bg-color)', width: '100%', borderTop: '1px solid var(--input-bg-color)', paddingBottom: 'env(safe-area-inset-bottom)', left: 0 }}>
             <QContainer noMargin>
