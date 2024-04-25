@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiOutlineUpload } from "react-icons/hi";
 import Checkbox from '@mui/joy/Checkbox';
 
-const Input = ({ long, upload, onChange, value, type, placeholder, def, checkbox, select, onClick }) => {
+const Input = ({ pattern, maxLength, onChange, value, type, placeholder, def, checkbox, select, onClick }) => {
     const [uploadedFile, setUploadedFile] = useState(null); 
 
     const inputStyles = {
@@ -33,7 +33,7 @@ const Input = ({ long, upload, onChange, value, type, placeholder, def, checkbox
         <>
             {def &&
                 <>
-                    <input style={inputStyles} placeholder={placeholder} onChange={onChange} value={value} type={type} />
+                    <input autoComplete='on' maxLength={maxLength} pattern={pattern} style={inputStyles} placeholder={placeholder} onChange={onChange} value={value} type={type} />
                 </>
             }
             {checkbox && 
@@ -43,11 +43,11 @@ const Input = ({ long, upload, onChange, value, type, placeholder, def, checkbox
             }
             {select && 
             <>
-            <select style={selectStyles} name="Choose on of the options" id="EXP" value={value} onChange={onChange}>
-                <option value="NaN">Нет опыта</option>
-                <option value="<3m">Меньше 3х месяцев</option>
-                <option value="3m-6m">3 месяца или больше</option>
-                <option value=">6m">Более чем 6 месяцев</option>
+            <select defaultValue={"Без опыта"} style={selectStyles} name="Choose on of the options" id="EXP" value={value} onChange={onChange}>
+                <option value="Без опыта">Нет опыта</option>
+                <option value="Меньше 3х месяцев">Меньше 3х месяцев</option>
+                <option value="3 месяца или больше">3 месяца или больше</option>
+                <option value="Более чем 6 месяцев">Более чем 6 месяцев</option>
             </select>
             </>
             }

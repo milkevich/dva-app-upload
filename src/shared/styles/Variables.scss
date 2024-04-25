@@ -11,6 +11,7 @@
     --main-bg-color: #fff;
     --main-color: #000;
     --main-bg-secondary-color: #d3dde8;
+    --main-bg-secondary-btn-color: #e7e7e7;
     --main-secondary-color: #656565;
     --accent-color: #3e7fd3;
     --border-radius: 5px;
@@ -22,6 +23,10 @@
   body {
     margin: 0;
     padding: 0;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 
   select {
