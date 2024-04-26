@@ -191,7 +191,7 @@ const ApplyScreen = () => {
             <QContainer>
               <h3 style={{ margin: 0, padding: 0 }}>Как вас зовут?<span style={{ color: "var(--danger-color)" }}>*</span></h3>
               <p style={{ marginTop: 0, padding: 0, color: 'var(--main-secondary-color)' }}>Пожалуйста введите своё имя.</p>
-              <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} def placeholder="Пр. Владислав" />
+              <Input name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} def placeholder="Пр. Владислав" />
             </QContainer>
             <br />
             <Divider />
@@ -200,7 +200,7 @@ const ApplyScreen = () => {
             <QContainer>
               <h3 style={{ margin: 0, padding: 0 }}>Какая у вас фамилия?<span style={{ color: "var(--danger-color)" }}>*</span></h3>
               <p style={{ marginTop: 0, padding: 0, color: 'var(--main-secondary-color)' }}>Пожалуйста введите свою фамилию.</p>
-              <Input value={lastName} onChange={(e) => setLastName(e.target.value)} def placeholder="Пр. Иванов" />
+              <Input name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} def placeholder="Пр. Иванов" />
             </QContainer>
             <br />
             <Divider />
@@ -300,7 +300,7 @@ const ApplyScreen = () => {
             <QContainer>
               <h3 style={{ margin: 0, padding: 0 }}>Укажите свой адесс проживания<span style={{ color: "var(--danger-color)" }}>*</span></h3>
               <p style={{ marginTop: 0, padding: 0, color: 'var(--main-secondary-color)' }}>Пожалуйста введите свой полный адесс проживания, включая штат и город.</p>
-              <Input value={address} onChange={(e) => setAddress(e.target.value)} def placeholder="Введите свой адресс" />
+              <Input name="address" value={address} onChange={(e) => setAddress(e.target.value)} def placeholder="Введите свой адресс" />
             </QContainer>
             <Divider style={{ marginTop: '30px' }} />
           </>

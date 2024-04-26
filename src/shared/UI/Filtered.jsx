@@ -11,6 +11,8 @@ const Filtered = ({ onClick, value, children, approved }) => {
         alignItems: "center",
         whiteSpace: "nowrap", 
         display: "inline-flex",
+        marginRight: "5px",
+        marginBottom: "5px",
     };
 
     const iconStyles = {

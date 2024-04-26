@@ -9,6 +9,7 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 import { HiOutlineDownload } from "react-icons/hi";
 import Button from '../shared/UI/Button';
 import { HiOutlineSpeakerphone } from "react-icons/hi";
+import { HiArrowSmRight } from "react-icons/hi";
 
 const ApplicantsProtected = () => {
   const [applicants, setApplicants] = useState([]);
@@ -116,14 +117,12 @@ const ApplicantsProtected = () => {
                   <p style={{ marginTop: 0, padding: 0, color: 'var(--main-secondary-color)' }}>{applicant.relativeTime}</p>
                 </div>
                 <p style={{ marginTop: "-10px", padding: 0, color: 'var(--main-secondary-color)' }}>{applicant.applicant.experience === '' ? 'Без опыта' : applicant.applicant.experience}</p>
-                <div style={{ overflowX: "scroll" }}>
-                  <div style={{ display: "flex", gap: "5px" }}>
+                <div style={{  }}>
                     <Filtered approved={applicant.ssn}>SSN</Filtered>
                     <Filtered approved={applicant.workAuthorization}>Разрешение на работу</Filtered>
                     <Filtered approved={applicant.bankAccount}>Банковский Аккаунт</Filtered>
                     <Filtered approved={applicant.llcCompany}>LLC</Filtered>
                     <Filtered approved={applicant.medicalCertificate}>Мед. Справка</Filtered>
-                  </div>
                 </div>
                 {expandedId === applicant.id &&
                   <div>
@@ -131,11 +130,9 @@ const ApplicantsProtected = () => {
                     <div>
                       <div style={{ display: "flex", alignItems: "center" }}>
                         <h3 style={{ flex: 1 }}>Водительские права: </h3>
-                        <div style={{ backgroundColor: "var(--main-bg-color)", padding: "5px 6px 0px 6px", borderRadius: "var(--border-radius)", border: "1px solid var(--input-bg-color)" }}>
                           <a style={{ color: "var(--main-color)" }} href={applicant.applicant.driverLicense} download={applicant.applicant.driverLicense}>
-                            <HiOutlineDownload style={{ fontSize: "20px" }} />
+                            <HiOutlineDownload style={{ fontSize: "20px", backgroundColor: "var(--main-bg-color)", padding: "5px 6px 6px 6px", borderRadius: "var(--border-radius)", border: "1px solid var(--input-bg-color)" }} />
                           </a>
-                        </div>
                       </div>
                       
                       <img style={{ maxWidth: "334px", borderRadius: "var(--border-radius)" }} src={applicant.applicant.driverLicense} alt="DriverLicense" />
@@ -153,9 +150,14 @@ const ApplicantsProtected = () => {
                       <h3 style={{ padding: 0, marginTop: "5px", marginBottom: "5px" }}>Связаться:</h3>
                       <p style={{ color: "var(--main-secondary-color)", padding: 0, margin: 0, }}>{applicant.applicant.contact}</p>
                     </div>
-                    <div>
+                    <div style={{display: "flex", alignItems: "end"}}>
+                      <div style={{flex: 1}}>
                       <h3 style={{ padding: 0, marginTop: "5px", marginBottom: "5px" }}>Адресс проживания:</h3>
                       <p style={{ color: "var(--main-secondary-color)", padding: 0, margin: 0, }}>{applicant.applicant.address}</p>
+                      </div>
+                      <a style={{ color: "var(--main-color)", marginBottom: "2px" }}   href={`http://maps.google.com/maps/dir/413+industrial+dr,+north+wales+pa/${encodeURIComponent(applicant.applicant.address)}`} download={applicant.applicant.driverLicense}>
+                        <HiArrowSmRight style={{fontSize: "20px", padding: "6px 6px 6px 6px", borderRadius: "var(--border-radius)", border: "1px solid var(--input-bg-color)" }}/>
+                      </a>
                     </div>
                     <br />
                     <Button onClick={() => setOpenDelete(true)} width="334px">Удалить Кандидата</Button>

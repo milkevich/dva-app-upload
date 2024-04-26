@@ -8,9 +8,9 @@ import ApplyScreen from './pages/ApplyScreen.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/dvalogisticsllc.com/' element={<App />}>
-      <Route path='/dvalogisticsllc.com/apply' element={<ApplyScreen />} />
-      <Route path='/dvalogisticsllc.com/admin' element={<ApplicantsProtected />} />
+    <Route path='/' element={<App />}>
+      <Route path='/apply' element={<ApplyScreen />} />
+      <Route path='/admin' element={<ApplicantsProtected />} />
     </Route>
   )
 );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiOutlineUpload } from "react-icons/hi";
 import Checkbox from '@mui/joy/Checkbox';
 
-const Input = ({ pattern, maxLength, onChange, value, type, placeholder, def, checkbox, select, onClick }) => {
+const Input = ({ pattern, maxLength, onChange, value, type, placeholder, def, checkbox, select, onClick, name }) => {
     const [uploadedFile, setUploadedFile] = useState(null); 
 
     const inputStyles = {
@@ -33,7 +33,7 @@ const Input = ({ pattern, maxLength, onChange, value, type, placeholder, def, ch
         <>
             {def &&
                 <>
-                    <input autoComplete='on' maxLength={maxLength} pattern={pattern} style={inputStyles} placeholder={placeholder} onChange={onChange} value={value} type={type} />
+                    <input name={name} autoComplete='on' maxLength={maxLength} pattern={pattern} style={inputStyles} placeholder={placeholder} onChange={onChange} value={value} type={type} />
                 </>
             }
             {checkbox && 

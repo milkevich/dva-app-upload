@@ -4,11 +4,11 @@ import './shared/styles/Variables.scss'
 
 function App() {
   const navigate = useNavigate();
-  const match = useMatch('/dvalogisticsllc.com/')
+  const match = useMatch('/')
   
   useEffect(() => {
     if (match) {
-      navigate('/dvalogisticsllc.com/apply');
+      navigate('/apply');
     }
   }, [navigate, match])
 
