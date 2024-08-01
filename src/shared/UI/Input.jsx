@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { HiOutlineUpload } from "react-icons/hi";
 import Checkbox from '@mui/joy/Checkbox';
 
-const Input = ({ pattern, maxLength, onChange, value, type, placeholder, def, checkbox, select, onClick, name }) => {
+const Input = ({ pattern, maxLength, onChange, value, type, placeholder, def, checkbox, select, onClick, name, borderRadius }) => {
     const [uploadedFile, setUploadedFile] = useState(null); 
 
     const inputStyles = {
         padding: "9px",
-        borderRadius: "var(--border-radius)",
+        borderRadius: borderRadius ? borderRadius : "var(--border-radius)",
         backgroundColor: "var(--main-input-bg-color)",
         color: "var(--main-color)",
         cursor: "text",

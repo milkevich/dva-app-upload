@@ -5,12 +5,14 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 import ApplicantsProtected from './pages/ApplicantsProtected.jsx';
 import App from './App.jsx';
 import ApplyScreen from './pages/ApplyScreen.jsx'
+import OrderScreen from './pages/OrderScreen.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path='/apply' element={<ApplyScreen />} />
       <Route path='/admin' element={<ApplicantsProtected />} />
+      <Route path='/order' element={<OrderScreen />} />
     </Route>
   )
 );

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Button = ({ secondary, children, special, singular, onClick, value, width }) => {
+const Button = ({ secondary, children, special, singular, onClick, value, width, borderRadius, disabled }) => {
     const buttonStyles = {
         padding: singular ? "0px" : "10px 30px",
-        borderRadius: "var(--border-radius)",
+        borderRadius: borderRadius ? borderRadius : "var(--border-radius)",
         backgroundColor: secondary ? "var(--main-bg-secondary-btn-color)" : "var(--main-color)",
         color: secondary ? "var(--main-secondary-color)" : "var(--main-bg-color)",
         cursor: "pointer",
@@ -18,7 +18,7 @@ const Button = ({ secondary, children, special, singular, onClick, value, width 
     };
 
     return (
-        <button onClick={onClick} value={value} style={buttonStyles}>{children}</button>
+        <button disabled={disabled} onClick={onClick} value={value} style={buttonStyles}>{children}</button>
     );
 };
 
