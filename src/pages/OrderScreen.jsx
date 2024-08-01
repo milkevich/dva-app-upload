@@ -26,6 +26,7 @@ const OrderScreen = () => {
                 const menuSnapshot = await getDocs(menuCollection);
                 const menuList = menuSnapshot.docs.map(doc => doc.data());
                 setMenuItems(menuList);
+        
             } catch (error) {
                 console.error('Error fetching menu items:', error);
             }
